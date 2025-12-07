@@ -18,62 +18,326 @@ body.light-theme .navbar{background:rgba(255,255,255,0.95);border-bottom:1px sol
 body.light-theme .nav-btn{background:rgba(0,0,0,0.05);color:#333;border:1px solid rgba(0,0,0,0.1);}
 
 /* ===== GLASS MORPHISM HEADER ===== */
-.navbar{position:fixed;top:0;left:0;right:0;height:70px;display:flex;justify-content:space-between;align-items:center;padding:0 20px;background:rgba(255,255,255,0.08);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,0.1);z-index:1000;transition:all 0.4s ease;}
+.navbar{
+  position:fixed;top:0;left:0;right:0;height:70px;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 20px;background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid rgba(255,255,255,0.1);
+  z-index:1000;transition:all 0.4s ease;
+}
+
 .logo-box{display:flex;align-items:center;gap:12px;}
 .brand{font-size:18px;font-weight:800;background:linear-gradient(45deg,#fff,#667eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .light-theme .brand{background:linear-gradient(45deg,#333,#667eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.custom-logo {height:36px;width:auto;object-fit:contain;margin-right:10px;transition: transform 0.3s ease;border-radius:6px;}
-.custom-logo:hover {transform: scale(1.05);}
-@media (max-width: 480px){.custom-logo{height:30px;margin-right:8px;}}
+
+.custom-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+  border-radius: 6px;
+}
+.custom-logo:hover {
+  transform: scale(1.05);
+}
+@media (max-width: 480px) {
+  .custom-logo {
+    height: 30px;
+    margin-right: 8px;
+  }
+}
 
 .left-menu{display:flex;align-items:center;gap:10px;}
-.nav-btn{padding:8px 16px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:20px;cursor:pointer;font-size:13px;color:#fff;transition:all 0.3s ease;backdrop-filter:blur(10px);position:relative;overflow:hidden;white-space:nowrap;display:flex;align-items:center;gap:8px;}
+.nav-btn{
+  padding:8px 16px;background:rgba(255,255,255,0.1);
+  border:1px solid rgba(255,255,255,0.2);border-radius:20px;
+  cursor:pointer;font-size:13px;color:#fff;transition:all 0.3s ease;
+  backdrop-filter:blur(10px);position:relative;overflow:hidden;
+  white-space:nowrap;display:flex;align-items:center;gap:8px;
+}
 .nav-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.2),transparent);transition:left 0.5s;}
 .nav-btn:hover::before{left:100%;}
 .nav-btn:hover{transform:translateY(-2px);background:rgba(255,255,255,0.15);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+
 .theme-toggle-wrapper{display:flex;align-items:center;gap:8px;}
 .theme-text{font-size:13px;color:#fff;white-space:nowrap;}
 .light-theme .theme-text{color:#333;}
+
 .hamburger{display:none;flex-direction:column;gap:3px;cursor:pointer;padding:8px;z-index:1001;}
 .hamburger div{width:22px;height:2px;background:#fff;transition:all 0.3s ease;border-radius:2px;}
 .light-theme .hamburger div{background:#333;}
 .hamburger.active div:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
 .hamburger.active div:nth-child(2){opacity:0;}
 .hamburger.active div:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);}
-.mobile-menu{position:fixed;top:0;right:-100%;width:85%;max-width:300px;height:100vh;background:rgba(10,10,10,0.98);backdrop-filter:blur(25px);padding:80px 25px 25px;transition:right 0.4s ease;z-index:999;border-left:1px solid rgba(255,255,255,0.1);overflow-y:auto;}
+
+.mobile-menu{
+  position:fixed;top:0;right:-100%;width:85%;max-width:300px;height:100vh;
+  background:rgba(10,10,10,0.98);backdrop-filter:blur(25px);
+  padding:80px 25px 25px;transition:right 0.4s ease;
+  z-index:999;border-left:1px solid rgba(255,255,255,0.1);
+  overflow-y:auto;
+}
 .mobile-menu.active{right:0;}
 .light-theme .mobile-menu{background:rgba(255,255,255,0.98);border-left:1px solid rgba(0,0,0,0.1);}
 .mobile-menu a{display:block;padding:15px 0;color:#fff;font-size:16px;border-bottom:1px solid rgba(255,255,255,0.1);transition:all 0.3s ease;}
 .light-theme .mobile-menu a{color:#333;border-bottom:1px solid rgba(0,0,0,0.1);}
 .mobile-menu a:hover{color:#667eea;padding-right:10px;}
 
-.hero-section{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:80px 20px 40px;}
+.hero-section{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  justify-content:center;overflow:hidden;padding:80px 20px 40px;
+}
 .hero-content{text-align:center;z-index:2;position:relative;width:100%;max-width:800px;}
-.hero-title{font-size:clamp(2rem, 6vw, 3.5rem);font-weight:900;margin-bottom:20px;background:linear-gradient(45deg,#fff,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:textGlow 3s ease-in-out infinite alternate;line-height:1.2;}
+.hero-title{
+  font-size:clamp(2rem, 6vw, 3.5rem);font-weight:900;margin-bottom:20px;
+  background:linear-gradient(45deg,#fff,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  animation:textGlow 3s ease-in-out infinite alternate;
+  line-height:1.2;
+}
 .light-theme .hero-title{background:linear-gradient(45deg,#333,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero-subtitle{font-size:clamp(0.9rem, 3vw, 1.2rem);color:rgba(255,255,255,0.8);margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.hero-subtitle{
+  font-size:clamp(0.9rem, 3vw, 1.2rem);color:rgba(255,255,255,0.8);
+  margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto;
+  line-height:1.6;
+}
 .light-theme .hero-subtitle{color:rgba(0,0,0,0.7);}
-@keyframes textGlow{0%{text-shadow:0 0 20px rgba(102,126,234,0.5);}100%{text-shadow:0 0 30px rgba(118,75,162,0.8),0 0 40px rgba(102,126,234,0.6);}}
-.cta-button{padding:14px 35px;background:linear-gradient(45deg,#667eea,#764ba2);border:none;border-radius:25px;color:white;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.3s ease;position:relative;overflow:hidden;box-shadow:0 8px 25px rgba(102,126,234,0.4);display:inline-block;}
+
+@keyframes textGlow{
+  0%{text-shadow:0 0 20px rgba(102,126,234,0.5);}
+  100%{text-shadow:0 0 30px rgba(118,75,162,0.8),0 0 40px rgba(102,126,234,0.6);}
+}
+
+.cta-button{
+  padding:14px 35px;background:linear-gradient(45deg,#667eea,#764ba2);
+  border:none;border-radius:25px;color:white;font-size:15px;
+  font-weight:600;cursor:pointer;transition:all 0.3s ease;
+  position:relative;overflow:hidden;box-shadow:0 8px 25px rgba(102,126,234,0.4);
+  display:inline-block;
+}
 .cta-button:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 12px 35px rgba(102,126,234,0.6);}
 
-.architecture-showcase{width:100%;height:60vh;min-height:400px;position:relative;overflow:hidden;margin:40px 0;border-radius:0;background:#000;}
-.architecture-image{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
-.architecture-showcase:hover .architecture-image{transform:scale(1.03);}
-.image-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(45deg,rgba(0,0,0,0.3),rgba(102,126,234,0.2));display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.5s ease;}
-.architecture-showcase:hover .image-overlay{opacity:1;}
-.overlay-text{color:white;font-size:clamp(1.5rem, 4vw, 2.5rem);font-weight:700;text-align:center;padding:20px;}
+.architecture-showcase{
+  width:100%;height:60vh;min-height:400px;position:relative;overflow:hidden;
+  margin:40px 0;border-radius:0;background:#000;
+}
+.architecture-image{
+  width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;
+}
+.architecture-showcase:hover .architecture-image{
+  transform:scale(1.03);
+}
+.image-overlay{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  background:linear-gradient(45deg,rgba(0,0,0,0.3),rgba(102,126,234,0.2));
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity 0.5s ease;
+}
+.architecture-showcase:hover .image-overlay{
+  opacity:1;
+}
+.overlay-text{
+  color:white;font-size:clamp(1.5rem, 4vw, 2.5rem);font-weight:700;
+  text-align:center;padding:20px;
+}
 
-//* === iframe ریسپانسیو بدون اسکرول اضافه === */
+/* === iframe جایگزین اسلایدر === */
+.iframe-section {
+  padding: 0;
+  margin: 40px 0;
+  width: 100%;
+  position: relative;
+}
+
+
+/* بقیه استایل‌ها بدون تغییر */
+.gallery-section{padding:60px 20px;}
+.gallery-title{
+  font-size:clamp(1.8rem, 5vw, 2.5rem);text-align:center;margin-bottom:40px;
+  background:linear-gradient(45deg,#fff,#667eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.light-theme .gallery-title{background:linear-gradient(45deg,#333,#667eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:20px;
+  padding:0 20px;
+  overflow:hidden;
+}
+
+.gallery-item{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:15px;
+  opacity:0;
+  transform:translateX(-50px);
+  transition:all 0.7s ease-out;
+  cursor:pointer;
+  box-shadow:0 6px 18px rgba(0,0,0,0.12);
+  background-size:cover;
+  background-position:center;
+}
+
+.gallery-item.show{
+  transform:translateX(0);
+  opacity:1;
+}
+
+.gallery-item:hover{
+  transform:scale(1.05);
+  box-shadow:0 12px 30px rgba(0,0,0,0.2);
+}
+
+.portfolio-section{
+  padding:80px 20px;background:rgba(255,255,255,0.02);
+  position:relative;overflow:hidden;
+}
+.portfolio-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;position:relative;
+}
+.portfolio-item{
+  position:relative;border-radius:20px;overflow:hidden;height:400px;
+  background:#000;transition:all 0.8s ease;cursor:pointer;
+  animation:portfolioFloat 6s ease-in-out infinite;
+  box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+.portfolio-item:nth-child(1){animation-delay:0s;}
+.portfolio-item:nth-child(2){animation-delay:1.5s;}
+.portfolio-item:nth-child(3){animation-delay:3s;}
+
+@keyframes portfolioFloat{
+  0%,100%{transform:translateY(0px) rotate(0deg);}
+  25%{transform:translateY(-15px) rotate(1deg);}
+  50%{transform:translateY(-8px) rotate(-1deg);}
+  75%{transform:translateY(-12px) rotate(0.5deg);}
+}
+
+.portfolio-item:hover{
+  animation-play-state:paused;
+  transform:translateY(-20px) scale(1.05) rotate(3deg);
+  box-shadow:0 30px 60px rgba(102,126,234,0.4);
+}
+
+.portfolio-item img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.8s ease;
+}
+.portfolio-item:hover img{
+  transform:scale(1.2);
+}
+.portfolio-info{
+  position:absolute;bottom:0;left:0;right:0;padding:30px;
+  background:linear-gradient(transparent,rgba(0,0,0,0.95));
+  color:white;transform:translateY(100px);
+  transition:all 0.6s ease;backdrop-filter:blur(10px);
+}
+.portfolio-item:hover .portfolio-info{
+  transform:translateY(0);
+}
+.portfolio-info h3{
+  font-size:1.5rem;margin-bottom:10px;
+  background:linear-gradient(45deg,#fff,#667eea);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.portfolio-info p{opacity:0.9;font-size:1rem;}
+
+.projects-section{padding:60px 20px;}
+.project-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.project-card{
+  background:rgba(255,255,255,0.05);border-radius:15px;padding:25px;
+  backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);
+  transition:all 0.4s ease;position:relative;overflow:hidden;
+}
+.light-theme .project-card{background:rgba(255,255,255,0.8);border:1px solid rgba(0,0,0,0.1);color:#333;}
+.project-card:hover{transform:translateY(-8px) scale(1.02);background:rgba(255,255,255,0.08);}
+
+.footer{
+  background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);padding:40px 20px;
+  border-top:1px solid rgba(255,255,255,0.1);margin-top:60px;
+}
+.light-theme .footer{background:rgba(0,0,0,0.05);border-top:1px solid rgba(0,0,0,0.1);}
+.footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;}
+.footer-section h3{
+  font-size:1.3rem;margin-bottom:15px;
+  background:linear-gradient(45deg,#fff,#667eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.light-theme .footer-section h3{background:linear-gradient(45deg,#333,#667eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
+.social-links{display:flex;gap:12px;margin-top:15px;}
+.social-link{
+  width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);
+  display:flex;align-items:center;justify-content:center;transition:all 0.3s ease;
+  border:1px solid rgba(255,255,255,0.2);font-size:14px;
+}
+.light-theme .social-link{background:rgba(0,0,0,0.1);border:1px solid rgba(0,0,0,0.2);}
+.social-link:hover{background:linear-gradient(45deg,#667eea,#764ba2);transform:translateY(-3px);}
+
+@media (max-width: 768px) {
+  .hamburger{display:flex;}
+  .left-menu .nav-btn:not(#themeToggle){display:none;}
+  .brand{font-size:16px;}
+  .navbar{padding:0 15px;height:65px;}
+  .hero-section{padding:70px 15px 30px;min-height:80vh;}
+  .hero-title{font-size:2rem;margin-bottom:15px;}
+  .hero-subtitle{font-size:1rem;margin-bottom:25px;}
+  .gallery{grid-template-columns:1fr;padding:0 15px;}
+  .gallery-item{height:220px;}
+  .portfolio-grid{grid-template-columns:1fr;gap:20px;}
+  .portfolio-item{height:350px;animation-duration:8s;}
+  .project-cards{grid-template-columns:1fr;gap:15px;}
+  .footer-content{grid-template-columns:1fr;gap:25px;}
+  .footer{padding:30px 15px;}
+  .architecture-showcase{height:40vh;min-height:300px;margin:30px 0;}
+  .theme-text{display:inline;}
+
+ 
+}
+
+@media (max-width: 480px) {
+  .navbar{padding:0 12px;height:60px;}
+  .brand{font-size:15px;}
+  .hero-section{padding:60px 12px 25px;}
+  .hero-title{font-size:1.8rem;}
+  .cta-button{padding:12px 30px;font-size:14px;}
+  .gallery-item{height:200px;}
+  .portfolio-item{height:300px;}
+  .gallery-title{font-size:1.6rem;margin-bottom:30px;}
+  .mobile-menu{width:80%;padding:70px 20px 20px;}
+}
+
+@media (min-width: 1200px) {
+  .navbar{padding:0 40px;}
+  .hero-section{padding:100px 40px 60px;}
+  .gallery-section, .portfolio-section, .projects-section{
+    padding:80px 40px;
+  }
+  .gallery{padding:0 40px;}
+  .footer{padding:50px 40px;}
+}
+
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:#1a1a2e;}
+.light-theme ::-webkit-scrollbar-track{background:#e9ecef;}
+::-webkit-scrollbar-thumb{background:linear-gradient(45deg,#667eea,#764ba2);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(45deg,#764ba2,#667eea);}
+
+
+.iframe-section {
+  width: 100%;
+  margin: 40px 0;
+  padding: 0 20px;
+}
+
 .iframe-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; /* نسبت استاندارد */
-  max-height: 70vh; /* محدود کردن ارتفاع در موبایل */
+  padding-top: 56.25%; /* نسبت 16:9 برای دسکتاپ */
+  border-radius: 12px;
   overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  margin: 0 auto 30px;
 }
 
 .iframe-container iframe {
@@ -84,86 +348,43 @@ body.light-theme .nav-btn{background:rgba(0,0,0,0.05);color:#333;border:1px soli
   height: 100%;
   border: none;
   display: block;
+  border-radius: 12px;
 }
 
-/* در موبایل‌های کوچک، ارتفاع کمتری بگیرد */
-@media (max-width: 480px) {
+/* Mobile */
+@media (max-width: 768px) {
   .iframe-container {
-    aspect-ratio: 16 / 12; /* معادل 4:3 — کوتاه‌تر */
-    max-height: 45vh; /* مثلاً فقط نیمی از صفحه */
+    padding-top: 177.78%; /* نسبت 9:16 برای موبایل */
   }
 }
 
-/* === گالری آثار === */
-.gallery-section{padding:60px 20px;}
-.gallery-title{font-size:clamp(1.8rem, 5vw, 2.5rem);text-align:center;margin-bottom:40px;background:linear-gradient(45deg,#fff,#667eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.light-theme .gallery-title{background:linear-gradient(45deg,#333,#667eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-  gap:20px;
-  padding:0 20px;
-  overflow:hidden;
-}
-.gallery-item{
-  width:100%;
-  height:auto;
-  aspect-ratio: 3 / 2;
-  object-fit:cover;
-  border-radius:15px;
-  opacity:0;
-  transform:translateX(-50px);
-  transition:all 0.7s ease-out;
-  cursor:pointer;
-  box-shadow:0 6px 18px rgba(0,0,0,0.12);
-}
-.gallery-item.show{
-  transform:translateX(0);
-  opacity:1;
-}
-.gallery-item:hover{
-  transform:scale(1.05);
-  box-shadow:0 12px 30px rgba(0,0,0,0.2);
-}
 
-/* بهبود برای موبایل‌های کوچک */
-@media (max-width: 480px) {
-  .gallery {
-    gap: 12px;
-    padding: 0 15px;
-    grid-template-columns: 1fr;
-  }
-  .gallery-item {
-    aspect-ratio: 4 / 3;
-    transform: translateX(0);
-    opacity: 1;
-  }
-  .hero-title {
-    font-size: clamp(1.8rem, 8vw, 2.8rem);
-  }
-  .hero-subtitle {
-    font-size: clamp(0.85rem, 4vw, 1.1rem);
-  }
-  .architecture-showcase {
-    height: 50vh;
-    min-height: 300px;
-  }
-}
+
 </style>
 </head>
 <body>
 
 <header class="navbar">
   <div class="left-menu">
-    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <a href="#gallery" class="nav-btn desktop-only">گالری آثار</a>
     <a href="#about" class="nav-btn desktop-only">درباره من</a>
     <a href="#services" class="nav-btn desktop-only">خدمات ما</a>
     <div class="theme-toggle-wrapper">
-      <button class="nav-btn" id="themeToggle"><i class="fas fa-sun"></i><span class="theme-text">حالت روز</span></button>
+      <button class="nav-btn" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <span class="theme-text">حالت روز</span>
+      </button>
     </div>
   </div>
-  <div class="logo-box"><img src="images/intro.JPG" alt="لوگوی دفتر معماری" class="custom-logo"><div class="brand">دفتر معماری امیرحسین</div></div>
+  <div class="logo-box">
+    <img src="images/intro.JPG" alt="لوگوی دفتر معماری" class="custom-logo">
+    <div class="brand">دفتر معماری امیرحسین</div>
+  </div>
 </header>
 
 <nav class="mobile-menu" id="mobileMenu">
@@ -177,28 +398,36 @@ body.light-theme .nav-btn{background:rgba(0,0,0,0.05);color:#333;border:1px soli
   <div class="hero-content">
     <h1 class="hero-title">خلاقیت در بعد سوم</h1>
     <p class="hero-subtitle">طراحی‌های معماری منحصر به فرد با تکنولوژی سه‌بعدی پیشرفته و المان‌های گرافیکی خیره‌کننده</p>
-    <button class="cta-button" onclick="document.querySelector('#gallery').scrollIntoView({behavior:'smooth'})"><span>کشف پروژه‌ها</span></button>
+    <button class="cta-button" onclick="document.querySelector('#gallery').scrollIntoView({behavior:'smooth'})">
+      <span>کشف پروژه‌ها</span>
+    </button>
   </div>
 </section>
 
 <section class="architecture-showcase">
   <img src="images/a_ (1).jpg" alt="پروژه نمای اصلی" class="architecture-image">
-  <div class="image-overlay"><div class="overlay-text">طراحی‌های منحصر به فرد معماری</div></div>
-</section>
-
-<!-- iframe‌ها -->
-<section class="gallery-section">
-  <div class="iframe-container">
-    <iframe src="2/2_in.html" frameborder="0" allowfullscreen></iframe>
-  </div>
-</section>
-<section class="gallery-section">
-  <div class="iframe-container">
-    <iframe src="1/1_in.html" frameborder="0" allowfullscreen></iframe>
+  <div class="image-overlay">
+    <div class="overlay-text">طراحی‌های منحصر به فرد معماری</div>
   </div>
 </section>
 
-<!-- گالری آثار -->
+<!-- ⬇️ iframe جایگزین اسلایدر -->
+
+<section class="iframe-section">
+  <div class="iframe-container">
+    <iframe src="2/2_in.html" class="iframe-content" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
+
+<section class="iframe-section">
+  <div class="iframe-container">
+    <iframe src="1/1_in.html" class="iframe-content" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
+
+
+
+<!-- ✅ گالری آثار – نسخه نهایی با عکس‌های واقعی شما -->
 <section id="gallery" class="gallery-section">
   <h2 class="gallery-title">گالری آثار</h2>
   <div class="gallery">
@@ -210,6 +439,38 @@ body.light-theme .nav-btn{background:rgba(0,0,0,0.05);color:#333;border:1px soli
     <img src="images/a_ (6).jpg" class="gallery-item" alt="روف گاردن">
   </div>
 </section>
+
+<section id="services" class="projects-section">
+  <h2 class="section-title">خدمات ما</h2>
+  <div class="project-cards">
+    <div class="project-card">
+      <h3><i class="fas fa-home"></i> طراحی مسکونی</h3>
+      <p>طراحی ویلا و آپارتمان با جدیدترین متدهای سه‌بعدی</p>
+    </div>
+    <div class="project-card">
+      <h3><i class="fas fa-building"></i> طراحی نما</h3>
+      <p>طراحی نماهای مدرن، کلاسیک و ترکیبی</p>
+    </div>
+    <div class="project-card">
+      <h3><i class="fas fa-tree"></i> طراحی فضای سبز</h3>
+      <p>محوطه‌سازی، روف گاردن و لنداسکیپ حرفه‌ای</p>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="portfolio-section">
+  <h2 class="section-title">درباره من</h2>
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="images/a_ (1).jpg" alt="امیرحسین بیگمرادی">
+      <div class="portfolio-info">
+        <h3>امیرحسین بیگمرادی</h3>
+        <p>کارشناسی و کارشناسی‌ارشد معماری از دانشگاه تهران<br>بیش از ۱۰ سال تجربه در طراحی، ساخت و بازسازی</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact" class="footer">
   <div class="footer-content">
     <div class="footer-section">
@@ -292,7 +553,7 @@ themeToggle.addEventListener('click', () => {
 
 // ریویل گالری
 const galleryItems = document.querySelectorAll('.gallery-item');
-function revealGallery() {
+const revealGallery = () => {
   const trigger = window.innerHeight * 0.85;
   galleryItems.forEach((item, i) => {
     const top = item.getBoundingClientRect().top;
@@ -302,7 +563,24 @@ function revealGallery() {
       }, i * 150);
     }
   });
-}
+};
+
+// انیمیشن‌ها
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.project-card, .portfolio-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
 
 // بارگذاری اولیه
 window.addEventListener('DOMContentLoaded', () => {
@@ -311,7 +589,25 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 window.addEventListener('scroll', revealGallery);
-window.addEventListener('resize', revealGallery);
+window.addEventListener('resize', () => {
+  if (window.innerWidth <= 768) document.body.classList.add('mobile');
+  else document.body.classList.remove('mobile');
+});
+const iframe = document.getElementById('myFrame');
+
+// به iframe پیام می‌فرستیم تا خودش فول‌اسکرین بشه
+function askIframeToFullscreen() {
+  iframe.contentWindow.postMessage({type: 'go-fullscreen'}, '*');
+}
+
+// در صورت same-origin می‌توانید مستقیم هم تلاش کنید:
+function parentRequestFullscreen() {
+  if (iframe.requestFullscreen) {
+    iframe.requestFullscreen().catch(err => console.log('parent requestFullscreen failed:', err));
+  } else if (iframe.webkitRequestFullscreen) {
+    iframe.webkitRequestFullscreen();
+  }
+}
 </script>
 </body>
 </html>
