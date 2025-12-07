@@ -64,30 +64,33 @@ body.light-theme .nav-btn{background:rgba(0,0,0,0.05);color:#333;border:1px soli
 .architecture-showcase:hover .image-overlay{opacity:1;}
 .overlay-text{color:white;font-size:clamp(1.5rem, 4vw, 2.5rem);font-weight:700;text-align:center;padding:20px;}
 
-/* === iframe ریسپانسیو === */
-.iframe-container{
-  position:relative;
-  width:100%;
-  padding-top:56.25%; /* نسبت 16:9 */
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 6px 18px rgba(0,0,0,0.12);
-  transition:all 0.5s ease;
-  margin-bottom:30px;
+//* === iframe ریسپانسیو بدون اسکرول اضافه === */
+.iframe-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* نسبت استاندارد */
+  max-height: 70vh; /* محدود کردن ارتفاع در موبایل */
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  margin: 0 auto 30px;
 }
-.iframe-container iframe{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  border:none;
-  border-radius:15px;
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
-/* در موبایل کوچک همچنان از 16:9 استفاده می‌کنیم */
-@media (max-width:768px){
-  .iframe-container{
-    padding-top:56.25%;
+
+/* در موبایل‌های کوچک، ارتفاع کمتری بگیرد */
+@media (max-width: 480px) {
+  .iframe-container {
+    aspect-ratio: 16 / 12; /* معادل 4:3 — کوتاه‌تر */
+    max-height: 45vh; /* مثلاً فقط نیمی از صفحه */
   }
 }
 
