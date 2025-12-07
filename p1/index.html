@@ -326,12 +326,10 @@ body.light-theme .nav-btn{background:rgba(0,0,0,0.05);color:#333;border:1px soli
 ::-webkit-scrollbar-thumb:hover{background:linear-gradient(45deg,#764ba2,#667eea);}
 
 
-/* === iframe جایگزین اسلایدر === */
 .iframe-section {
-  padding: 0;
-  margin: 40px 0;
   width: 100%;
-  position: relative;
+  margin: 40px 0;
+  padding: 0 20px;
 }
 
 .iframe-container {
@@ -353,13 +351,12 @@ body.light-theme .nav-btn{background:rgba(0,0,0,0.05);color:#333;border:1px soli
   border-radius: 12px;
 }
 
-/* Mobile responsiveness */
+/* Mobile */
 @media (max-width: 768px) {
   .iframe-container {
     padding-top: 177.78%; /* نسبت 9:16 برای موبایل */
   }
 }
-
 
 
 
@@ -416,18 +413,19 @@ body.light-theme .nav-btn{background:rgba(0,0,0,0.05);color:#333;border:1px soli
 
 <!-- ⬇️ iframe جایگزین اسلایدر -->
 
-<div class="iframe-container">
-  <iframe src="2/2_in.html" class="iframe-content" frameborder="0" allowfullscreen></iframe>
-</div>
-<section id="gallery" class="gallery-section">
+<section class="iframe-section">
+  <div class="iframe-container">
+    <iframe src="2/2_in.html" class="iframe-content" frameborder="0" allowfullscreen></iframe>
+  </div>
 </section>
 
-<!-- ⬇️ iframe جایگزین اسلایدر -->
-<div class="iframe-container">
-  <iframe src="1/1_in.html" class="iframe-content" frameborder="0" allowfullscreen></iframe>
-</div>
-<section id="gallery" class="gallery-section"> 
+<section class="iframe-section">
+  <div class="iframe-container">
+    <iframe src="1/1_in.html" class="iframe-content" frameborder="0" allowfullscreen></iframe>
+  </div>
 </section>
+
+
 
 <!-- ✅ گالری آثار – نسخه نهایی با عکس‌های واقعی شما -->
 <section id="gallery" class="gallery-section">
