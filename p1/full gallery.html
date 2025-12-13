@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>همه آثار | دفتر معماری امیرحسین بیگمرادی</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="images/logo.ico" type="image/x-icon" />
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --soft-bg: #f0f2f5;
+    --card-bg: #ffffff;
+    --primary: #6a5af9;
+    --primary-light: #7e70ff;
+    --text: #2d2b3d;
+    --text-secondary: #7a7a8c;
+    --shadow-soft: 8px 8px 16px rgba(166, 173, 191, 0.3), -8px -8px 16px rgba(255, 255, 255, 0.8);
+    --shadow-soft-hover: 4px 4px 12px rgba(166, 173, 191, 0.35), -4px -4px 12px rgba(255, 255, 255, 0.85);
+    --radius: 16px;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--soft-bg);
+    min-height: 100vh;
+    padding: 24px;
+    color: var(--text);
+    direction: rtl;
+  }
+
+  .search-box {
+    margin-bottom: 28px;
+    text-align: center;
+  }
+
+  .search-box input {
+    width: 90%;
+    max-width: 600px;
+    padding: 14px 20px;
+    font-size: 16px;
+    background: var(--card-bg);
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    outline: none;
+    transition: all 0.3s ease;
+    color: var(--text);
+    font-weight: 500;
+    direction: rtl;
+  }
+
+  .search-box input:focus {
+    box-shadow: var(--shadow-soft-hover);
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-soft-hover);
+  }
+
+  .card-header {
+    padding: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* افکت شیشه‌ای نرم (subtle frosted look) */
+  .card-header::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(30deg);
+    pointer-events: none;
+  }
+
+  .card-header .title {
+    font-weight: 700;
+    font-size: 16px;
+    display: block;
+    letter-spacing: -0.3px;
+  }
+
+  .card-header .category {
+    font-size: 12px;
+    opacity: 0.92;
+    display: block;
+    margin-top: 4px;
+    font-weight: 500;
+    letter-spacing: -0.2px;
+  }
+
+  .card-content {
+    padding: 12px;
+    flex: 1;
+    min-height: 200px;
+  }
+
+  .card-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+  }
+
+  /* رسانه‌های واکنش‌گرا */
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    body {
+      padding: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+    body {
+      padding: 12px;
+    }
+    .card-content {
+      min-height: 180px;
+    }
+    .card-header .title {
+      font-size: 15px;
+    }
+  }
+
+  .card.hidden {
+    display: none;
+  }
+  
+  .footer{
+  background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);padding:40px 20px;
+  border-top:1px solid rgba(255,255,255,0.1);margin-top:60px;
+}
+.light-theme .footer{background:rgba(0,0,0,0.05);border-top:1px solid rgba(0,0,0,0.1);}
+.footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;}
+.footer-section h3{
+  font-size:1.3rem;margin-bottom:15px;
+  background:linear-gradient(45deg,#fff,#667eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.light-theme .footer-section h3{background:linear-gradient(45deg,#333,#667eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+
+.social-links{display:flex;gap:12px;margin-top:15px;}
+.social-link{
+  width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.1);
+  display:flex;align-items:center;justify-content:center;transition:all 0.3s ease;
+  border:1px solid rgba(255,255,255,0.2);font-size:14px;
+}
+.light-theme .social-link{background:rgba(0,0,0,0.1);border:1px solid rgba(0,0,0,0.2);}
+.social-link:hover{background:linear-gradient(45deg,#667eea,#764ba2);transform:translateY(-3px);}
+
+@media (max-width: 768px) {
+  .hamburger{display:flex;}
+  .left-menu .nav-btn:not(#themeToggle){display:none;}
+  .brand{font-size:16px;}
+  .navbar{padding:0 15px;height:65px;}
+  .hero-section{padding:70px 15px 30px;min-height:80vh;}
+  .hero-title{font-size:2rem;margin-bottom:15px;}
+  .hero-subtitle{font-size:1rem;margin-bottom:25px;}
+  .gallery{grid-template-columns:1fr;padding:0 15px;}
+  .gallery-item{height:220px;}
+  .portfolio-grid{grid-template-columns:1fr;gap:20px;}
+  .portfolio-item{height:350px;animation-duration:8s;}
+  .project-cards{grid-template-columns:1fr;gap:15px;}
+  .footer-content{grid-template-columns:1fr;gap:25px;}
+  .footer{padding:30px 15px;}
+  .architecture-showcase{height:40vh;min-height:300px;margin:30px 0;}
+  .theme-text{display:inline;}
+
+ 
+}
+
+@media (max-width: 480px) {
+  .navbar{padding:0 12px;height:60px;}
+  .brand{font-size:15px;}
+  .hero-section{padding:60px 12px 25px;}
+  .hero-title{font-size:1.8rem;}
+  .cta-button{padding:12px 30px;font-size:14px;}
+  .gallery-item{height:200px;}
+  .portfolio-item{height:300px;}
+  .gallery-title{font-size:1.6rem;margin-bottom:30px;}
+  .mobile-menu{width:80%;padding:70px 20px 20px;}
+}
+
+@media (min-width: 1200px) {
+  .navbar{padding:0 40px;}
+  .hero-section{padding:100px 40px 60px;}
+  .gallery-section, .portfolio-section, .projects-section{
+    padding:80px 40px;
+  }
+  .gallery{padding:0 40px;}
+  .footer{padding:50px 40px;}
+}
+
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:#1a1a2e;}
+.light-theme ::-webkit-scrollbar-track{background:#e9ecef;}
+::-webkit-scrollbar-thumb{background:linear-gradient(45deg,#667eea,#764ba2);border-radius:10px;}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(45deg,#764ba2,#667eea);}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+}
+
+.social-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* رنگ اختصاصی هر شبکه */
+.instagram { background: #E1306C; }
+.whatsapp { background: #25D366; }
+.telegram { background: #0088CC; }
+.phone { background: #555555; }
+
+/* ریسپانسیو */
+@media (max-width: 480px) {
+  .social-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+}
+
+.map-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+@media (max-width: 480px) {
+  .map-container iframe {
+    height: 200px;
+  }
+}
+
+.map-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+@media (max-width: 480px) {
+  .map-container iframe {
+    height: 200px;
+  }
+}
+
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1); /* شفاف */
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  margin-top: 20px;
+}
+
+.copy-location-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #0088cc;
+  color: white;
+  font-size: 16px;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.copy-btn i {
+  margin-right: 8px;
+}
+
+.copy-btn:hover {
+  background: #006699;
+  transform: scale(1.05);
+}
+
+</style>
+</head>
+<body>
+<a href="index.html" class="nav-btn desktop-only">پروفایل</a>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="جستجو بر اساس پروژه یا دسته‌بندی..." autocomplete="off">
+  </div>
+
+  <div class="grid-container" id="gridContainer">
+    <!-- کارت‌ها: پروژه + دسته‌بندی در هدر -->
+    <div class="card" data-title="پروژه 1" data-category="طراحی داخلی">
+      <div class="card-header">
+        <span class="title">پروژه 1</span>
+        <span class="category">دسته:طراحی داخلی-هال و پذیرایی</span>
+      </div>
+      <div class="card-content">
+        <iframe src="2/2_in.html" title="iframe 1"></iframe>
+      </div>
+    </div>
+
+    <div class="card" data-title="پروژه 2" data-category="دسته: طراحی نما">
+      <div class="card-header">
+        <span class="title">پروژه 2</span>
+        <span class="category">دسته: طراحی نما</span>
+      </div>
+      <div class="card-content">
+        <iframe src="4/4_in.html" title="iframe 2"></iframe>
+      </div>
+    </div>
+
+    <div class="card" data-title="پروژه 3" data-category="نقشه کشی">
+      <div class="card-header">
+        <span class="title">پروژه 3</span>
+        <span class="category">دسته: طراحی داخلی-اتاق</span>
+      </div>
+      <div class="card-content">
+        <iframe src="1/1_in.html" title="iframe 3"></iframe>
+      </div>
+    </div>
+
+    <div class="card" data-title="پروژه 4" data-category="طراحی داخلی">
+      <div class="card-header">
+        <span class="title">پروژه 4</span>
+        <span class="category">دسته: طراحی ورودی</span>
+      </div>
+      <div class="card-content">
+        <iframe src="3/3_in.html" title="iframe 4"></iframe>
+      </div>
+    </div>
+
+    <div class="card" data-title="پروژه 5" data-category="نقشه کشی">
+      <div class="card-header">
+        <span class="title">پروژه 5</span>
+        <span class="category">دسته: طراحی روف گاردن</span>
+      </div>
+      <div class="card-content">
+        <iframe src="5/5_in.html" title="iframe 5"></iframe>
+      </div>
+    </div>
+
+    <div class="card" data-title="پروژه 6" data-category="طراحی نما">
+      <div class="card-header">
+        <span class="title">پروژه 6</span>
+        <span class="category">دسته: طراحی محوطه</span>
+      </div>
+      <div class="card-content">
+        <iframe src="6/6_in.html" title="iframe 6"></iframe>
+      </div>
+    </div>
+ <div class="card" data-title="پروژه 7" data-category="طراحی نما">
+      <div class="card-header">
+        <span class="title">پروژه 7</span>
+        <span class="category">دسته:طراحی داخلی-اتاق کودک</span>
+      </div>
+      <div class="card-content">
+        <iframe src="7/7_in.html" title="iframe 7"></iframe>
+      </div>
+    </div>
+    <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>همه آثار</h3>
+        <p>گالری کامل پروژه‌های معماری، داخلی و فضای سبز</p>
+      </div>
+
+      <div class="contact-buttons">
+        <a href="https://instagram.com/username" target="_blank" class="social-btn instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/09192335317" target="_blank" class="social-btn whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://t.me/username" target="_blank" class="social-btn telegram">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="tel:09192335317" class="social-btn phone">
+          <i class="fas fa-phone"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.card');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        const category = card.getAttribute('data-category').toLowerCase();
+
+        if (title.includes(query) || category.includes(query)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
